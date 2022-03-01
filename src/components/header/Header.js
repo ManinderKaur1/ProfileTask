@@ -12,7 +12,6 @@ const Header = ({
 }) => (
     <View style={styles.headerContainer}>
         <Text style={styles.titleStyle}>{title}</Text>
-        <Image url={imageUrl} style={styles.userImageStyle}/>
         <Image source={backArrow} style={styles.leftIcon}/>
     </View>
 );
