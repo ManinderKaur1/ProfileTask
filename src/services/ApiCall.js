@@ -1,4 +1,5 @@
 import axios, {AxiosError, AxiosRequestConfig} from 'axios';
+import { Alert } from 'react-native';
 export const getApiRequest = (
     url
   ) => {
@@ -6,14 +7,16 @@ export const getApiRequest = (
       .get(url, {
         headers: {
           'Content-Type': 'application/json',
-          Accept: 'application/json',
+          'Accept': 'application/json',
         },
       })
       .then(response => {
         return response.data;
       })
       .catch((error) => {
-        //handleErrorResponses(errorResponse);
+        Alert.alert(
+          error
+        )
       });
   };
   
@@ -22,18 +25,18 @@ export const getApiRequest = (
     body,
   ) => {
     return axios
-      .post(url, data, {
+      .post(url, body, {
         headers: {
-          'Content-Type': contentType,
-          Accept: contentType,
-          Authorization: getAuthorizationToken(),
-        },
-        ...config,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        }
       })
       .then(response => {
         return response.data;
       })
       .catch((error) => {
-        //handleErrorResponses(errorResponse);
+        Alert.alert(
+          error
+        )
       });
   };
